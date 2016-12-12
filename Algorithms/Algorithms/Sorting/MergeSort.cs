@@ -6,13 +6,49 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Sorting
 {
+    /// <summary>
+    /// 
+    /// Algorithm:  MergeSort(S)
+    /// Input:      Sequence S
+    /// Output:     Sequence S sorted in increasing order
+    /// 
+    /// if S.length > 1 then
+    ///     1. (S1, S2) = Partition(S, n/2)
+    ///     2. MergeSort(S1)
+    ///     3. MergeSort(S2)
+    ///     4. S = Merge(S1, S2)
+    /// end if
+    /// 
+    /// ********************************************************************************************
+    /// 
+    /// Algorithm:  Merge(S)
+    /// Input:      Sorted sequence S1 and S2 with n/2 elements each
+    /// Output:     Sorted sequence S union of S1 and S2
+    /// 
+    /// S = empty sequence
+    /// while not(S1.isEmpty()) and not(S2.isEmpty()) do
+    ///     if S1.firstElement() less than S2.firstElement() then
+    ///         S.append(S1.removeFirstElement())
+    ///     else
+    ///         S.append(S2.removeFirstElement())
+    ///     end if
+    /// end while
+    /// while not(S1.isEmpty())
+    ///     S.append(S1.removeFirstElement())
+    /// end ehile
+    /// while not(S2.isEmpty())
+    ///     S.append(S2.removeFirstElement())
+    /// end while
+    /// 
+    /// </summary>
+
     internal class MergeSort : Sort
     {
         public override void Execute(int[] arr)
         {
             DoMergeSort(arr, 0, arr.Length - 1);
         }
-
+        
         private void DoMergeSort(int[] arr, int start, int end)
         {
             if(start < end)

@@ -6,6 +6,31 @@ using System.Threading.Tasks;
 
 namespace Algorithms.Sorting
 {
+    /// <summary>
+    /// Quick Sort
+    /// 
+    /// 1. Pick a random (pivot) element x and Devide the n-element sequence to be sorted into two sub-sequences L and G
+    ///     a. L has elements less than or equal to x
+    ///     b. G has elements greater than x
+    /// 2. Sort the two sub sequences L and G recursively using quick sort
+    /// 
+    /// Note: Quick sort is in-place sorting algorithm unlike Merge sort
+    /// 
+    /// Algorithm:  QuickSort(S)
+    /// Input:      Sequence S
+    /// Output:     Sequence S sorted in increasing order
+    /// 
+    /// if length(S) > 1 then
+    ///     1. p = random pivot element in S
+    ///     2. (S1, S2) = partition(S, p) // Both S1 and S2 are in-place sub array's in S where S1 contains elements with value less the p and S2 contains greater values
+    ///     3. QuickSort(S1)
+    ///     4. QuickSort(S2)
+    /// end if
+    /// 
+    /// Note: Here merging is not explicitly required as we are working on the same array (in-place sorting)
+    /// 
+    /// </summary>
+
     internal class QuickSort : Sort
     {
         public override void Execute(int[] arr)
